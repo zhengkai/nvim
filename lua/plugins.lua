@@ -11,6 +11,14 @@ return require('packer').startup(function()
 
 	use 'itchyny/lightline.vim'
 
+	use 'fatih/vim-go'
+
+	use 'vim-scripts/YankRing.vim'
+
+	use 'rking/ag.vim'
+
+	use 'tomtom/tcomment_vim'
+
 	use {'neoclide/coc.nvim', branch = 'release'}
 
 	use {
