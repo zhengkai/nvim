@@ -19,6 +19,9 @@ return require('packer').startup(function()
 
 	use 'tomtom/tcomment_vim'
 
+	use 'junegunn/fzf'
+	use 'junegunn/fzf.vim'
+
 	use {'neoclide/coc.nvim', branch = 'release'}
 
 	use {
