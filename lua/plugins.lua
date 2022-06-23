@@ -9,6 +9,10 @@ return require('packer').startup(function()
 
 	use 'haishanh/night-owl.vim'
 
+	use 'itchyny/lightline.vim'
+
+	use {'neoclide/coc.nvim', branch = 'release'}
+
 	use {
 		"ellisonleao/gruvbox.nvim",
 		requires = {"rktjmp/lush.nvim"}
