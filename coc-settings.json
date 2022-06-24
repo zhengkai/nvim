@@ -15,9 +15,6 @@
 			"command": "docker-langserver",
 			"filetypes": ["dockerfile"],
 			"args": ["--stdio"]
-		},
-		"html": {
-			"filetypes": ["html", "htm"]
 		}
 	}
 }

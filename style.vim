@@ -30,16 +30,15 @@ set fileencodings=utf-8
 " set ambiwidth=double
 
 try
-	colorscheme night-owl
+	colorscheme codedark
 catch
 	let g:jellybeans_background_color = '000000'
 	let g:jellybeans_background_color_256 = '000000'
-	so ~/.vim/jellybeans.vim
+	ru jellybeans.vim
 endtry
 
 hi Normal guibg=#000000
 hi LineNr guifg=#605958 guibg=#000000
-
 
 hi VertSplit ctermbg=NONE guibg=NONE
 
@@ -159,3 +158,47 @@ function! <SID>SynStack()
 	endif
 	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
+" golang
+hi def link goFormatSpecifier  goVarDefs
+
+let g:tagbar_type_go = {
+        \ 'ctagstype' : 'go',
+        \ 'kinds'     : [
+                \ 'p:package',
+                \ 'i:imports:1',
+                \ 'c:constants',
+                \ 'v:variables',
+                \ 't:types',
+                \ 'n:interfaces',
+                \ 'w:fields',
+                \ 'e:embedded',
+                \ 'm:methods',
+                \ 'r:constructor',
+                \ 'f:functions'
+        \ ],
+        \ 'sro' : '.',
+        \ 'kind2scope' : {
+                \ 't' : 'ctype',
+                \ 'n' : 'ntype'
+        \ },
+        \ 'scope2kind' : {
+                \ 'ctype' : 't',
+                \ 'ntype' : 'n'
+        \ },
+        \ 'ctagsbin'  : 'gotags',
+        \ 'ctagsargs' : '-sort -silent'
+\ }
+
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+let g:go_highlight_variable_assignments = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_generate_tags = 1
