@@ -19,12 +19,6 @@ map <Esc>[1;3D :echo yes
 
 nmap <Esc>e oif err != nil {<CR><Tab>return<CR>}<CR><Esc>
 
-" YCM 函数 preview 窗口，及关闭
-nnoremap <silent> <Esc>h :YcmCompleter GetDoc<CR>
-nnoremap <silent> <Esc>j :pclose<CR>
-nnoremap <silent> <Esc>t :YcmCompleter GetType<CR>
-autocmd FileType javascript nnoremap <silent> <C-]> :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
 " 兼容 F3 按错
 nnoremap <silent> <Esc>3 :TagbarToggle<CR>
 
@@ -50,7 +44,7 @@ nmap q <C-W>w
 map <Esc>q <C-W>W
 
 " 退出所有窗口
-nmap Q :qa<CR>
+nn Q :qa<CR>
 
 " 关闭缺省 man
 " nmap <S-K> <Nop>
@@ -60,13 +54,17 @@ nmap { ?{<CR>
 nmap } /{<CR>
 
 " 帮助 ( Ctrl + 2 )
-nmap <C-@> <ESC>:vert bo help<Space>
+nn <C-E> <ESC>:vert bo help<Space>
+
+" Github Copilot
+imap <silent><script><expr> <Esc>c copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
 
 " 使之前的单词字母大写
 map! <C-F> <Esc>gUiw`]a
 
 " git blame
-nmap <S-B> :Gblame<CR>
+nn <S-B> :Git blame<CR>
 
 " emmet 自动完成
 nnoremap , :call emmet#expandAbbr(3,"")<cr>

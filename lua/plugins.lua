@@ -8,6 +8,8 @@ return require('packer').startup(function()
 
 	use 'fatih/vim-go'
 
+	use 'tpope/vim-fugitive'
+
 	use 'vim-scripts/YankRing.vim'
 
 	use 'rking/ag.vim'
