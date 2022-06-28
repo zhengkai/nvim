@@ -2,6 +2,8 @@ set showtabline=2
 
 set clipboard=unnamedplus
 
+autocmd TermOpen * startinsert
+
 set nobomb
 set nowrap
 
