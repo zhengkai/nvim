@@ -1,5 +1,7 @@
-nnoremap <C-T> "=strftime("%F %T")<CR>P
-inoremap <C-T> <C-R>=strftime("%F %T")<CR>
+" nnoremap <C-T> "=strftime("%F %T")<CR>P
+" inoremap <C-T> <C-R>=strftime("%F %T")<CR>
+"
+nnoremap <C-T> :tabp<CR>
 
 map <S-R> :browse oldfiles<cr>
 
