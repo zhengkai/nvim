@@ -10,6 +10,8 @@ return require('packer').startup(function()
 
 	use 'tpope/vim-fugitive'
 
+	use 'preservim/tagbar'
+
 	use 'vim-scripts/YankRing.vim'
 
 	use 'rking/ag.vim'
