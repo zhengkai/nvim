@@ -1,6 +1,7 @@
 lua require('plugins')
 
 ru misc.vim
+ru backup.vim
 ru make.vim
 ru hotkey.vim
 ru status.vim
