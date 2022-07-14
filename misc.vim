@@ -10,18 +10,28 @@ set nowrap
 set autowrite
 set nofoldenable
 
+" 使用 ag 搜索
+set grepprg=ag\ --vimgrep\ $*
+set grepformat=%f:%l:%c:%m
+
+augroup quickfix
+	autocmd!
+	autocmd QuickFixCmdPost [^l]* cwindow 20
+	autocmd QuickFixCmdPost l* lwindow 20
+augroup END
+
 let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
 
 let g:copilot_filetypes = {
-\ '*': v:true,
-\ }
+			\ '*': v:true,
+			\ }
 
 " 记住上一次的位置
 au BufReadPost *
-	\ if line("'\"") > 0 && line("'\"") <= line("$") |
-	\ exe "normal g`\"" |
-	\ endif
+			\ if line("'\"") > 0 && line("'\"") <= line("$") |
+			\ exe "normal g`\"" |
+			\ endif
 
 " YankRing
 let g:yankring_replace_n_pkey = '<C-j>'
@@ -55,8 +65,11 @@ let g:ale_sign_warning = '!'
 let g:ale_sign_column_always = 1
 
 let g:ale_fixers = {
-\   'javascript': ['eslint'],
-\   'json': ['eslint'],
-\   'typescript': ['eslint'],
-\   'css': ['prettier'],
-\ }
+			\   'javascript': ['eslint'],
+			\   'json': ['eslint'],
+			\   'typescript': ['eslint'],
+			\   'css': ['prettier'],
+			\ }
+
+" tagbar
+let g:tagbar_map_close = '<S-W>'

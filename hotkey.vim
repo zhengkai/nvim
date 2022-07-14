@@ -21,7 +21,7 @@ map <Esc>[1;3D :echo yes
 
 nmap <Esc>e oif err != nil {<CR><Tab>return<CR>}<CR><Esc>
 
-" 兼容 F3 按错
+nnoremap <silent> <F3> :TagbarToggle<CR>
 nnoremap <silent> <Esc>3 :TagbarToggle<CR>
 
 " 防止误操作
