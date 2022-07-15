@@ -10,16 +10,6 @@ set nowrap
 set autowrite
 set nofoldenable
 
-" 使用 ag 搜索
-set grepprg=ag\ --vimgrep\ $*
-set grepformat=%f:%l:%c:%m
-
-augroup quickfix
-	autocmd!
-	autocmd QuickFixCmdPost [^l]* cwindow 20
-	autocmd QuickFixCmdPost l* lwindow 20
-augroup END
-
 let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
 
@@ -71,5 +61,10 @@ let g:ale_fixers = {
 			\   'css': ['prettier'],
 			\ }
 
-" tagbar
-let g:tagbar_map_close = '<S-W>'
+" liuchengxu/vista.vim
+function! NearestMethodOrFunction() abort
+  return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+
+set statusline+=%{NearestMethodOrFunction()}
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()

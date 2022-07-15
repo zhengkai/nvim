@@ -21,8 +21,8 @@ map <Esc>[1;3D :echo yes
 
 nmap <Esc>e oif err != nil {<CR><Tab>return<CR>}<CR><Esc>
 
-nnoremap <silent> <F3> :TagbarToggle<CR>
-nnoremap <silent> <Esc>3 :TagbarToggle<CR>
+nnoremap <silent> <F3> :Vista coc<CR>
+nnoremap <silent> <Esc>3 :Vista coc<CR>
 
 " 防止误操作
 command W w
