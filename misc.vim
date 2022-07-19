@@ -68,3 +68,12 @@ endfunction
 
 set statusline+=%{NearestMethodOrFunction()}
 autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+
+" help 默认竖屏打开
+augroup vertical_help
+  autocmd!
+  autocmd FileType help
+        \ setlocal bufhidden=unload |
+        \ wincmd L |
+        \ vertical resize 79
+augroup END
