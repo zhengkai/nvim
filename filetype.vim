@@ -27,3 +27,8 @@ au BufRead,BufNewFile hosts set filetype=hosts
 au BufRead,BufNewFile *.cue set filetype=cue
 
 au BufRead,BufNewFile .babelrc,.eslintrc set filetype=javascript
+
+" skeleton
+au BufNewFile *.sh    0r ~/.config/nvim/skeleton/bash | call cursor(3, 0)
+au BufNewFile *.php   0r ~/.config/nvim/skeleton/php  | call cursor(3, 0)
+au BufNewFile *.html  0r ~/.config/nvim/skeleton/html | call cursor(8, 0)
