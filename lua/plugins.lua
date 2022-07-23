@@ -17,6 +17,8 @@ return require('packer').startup(function()
 	use 'rking/ag.vim'
 
 	use 'tomtom/tcomment_vim'
+	
+	use 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 
 	use 'dense-analysis/ale'
 
