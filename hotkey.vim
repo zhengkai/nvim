@@ -41,9 +41,9 @@ nmap <Esc>i :r $HOME/.tmp/vimclip<CR>
 nmap <S-U> :!clear && %:p<CR>
 
 " 切换窗口
-nmap q <C-W>w
+nmap q :wincmd w<CR>
 " alt + q，反序切窗口
-map <Esc>q <C-W>W
+map <Esc>q :wincmd W<CR>
 
 " 退出所有窗口
 nn Q :qa<CR>
@@ -62,8 +62,11 @@ nn <C-E> <ESC>:vert bo help<Space>
 imap <silent><script><expr> <Esc>c copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
 
+map <C-U> :GoDocBrowser<CR>
+
 " 使之前的单词字母大写
-map! <C-F> <Esc>gUiw`]a
+map <C-W> <Esc>gUiw`]a
+imap <C-W> <Esc>bgUiw`]a
 
 " git blame
 nn <S-B> :Git blame<CR>
