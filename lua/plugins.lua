@@ -29,6 +29,8 @@ return require('packer').startup(function()
 	use 'junegunn/fzf'
 	use 'junegunn/fzf.vim'
 
+	use 'eandrju/cellular-automaton.nvim'
+
 	use {'neoclide/coc.nvim', branch = 'release'}
 
 end)
