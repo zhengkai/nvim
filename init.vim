@@ -10,3 +10,4 @@ ru coc.vim
 ru fzf.vim
 ru pair-complete.vim
 ru style.vim
+ru autocmd.vim
