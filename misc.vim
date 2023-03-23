@@ -56,7 +56,7 @@ let g:ale_sign_column_always = 1
 
 let g:ale_fixers = {
 			\   'javascript': ['eslint'],
-			\   'json': ['eslint'],
+			\   'json': ['jsonlint'],
 			\   'typescript': ['eslint'],
 			\   'css': ['prettier'],
 			\ }

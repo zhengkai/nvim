@@ -19,7 +19,7 @@ vnoremap // :TComment<CR>
 " alt + left
 map <Esc>[1;3D :echo yes
 
-nmap <Esc>e oif err != nil {<CR><Tab>return<CR>}<CR><Esc>
+nmap <Esc>e :GoIfErr<CR>
 
 nnoremap <silent> <F3> :Vista coc<CR>
 nnoremap <silent> <Esc>3 :Vista coc<CR>
