@@ -10,9 +10,11 @@ return require('packer').startup(function()
 
 	use 'tpope/vim-fugitive'
 
-	use 'liuchengxu/vista.vim'
+	-- use 'liuchengxu/vista.vim'
 
 	use 'vim-scripts/YankRing.vim'
+
+	use 'python-lsp/python-lsp-server'
 
 	use 'rking/ag.vim'
 

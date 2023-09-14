@@ -62,12 +62,12 @@ let g:ale_fixers = {
 			\ }
 
 " liuchengxu/vista.vim
-function! NearestMethodOrFunction() abort
-  return get(b:, 'vista_nearest_method_or_function', '')
-endfunction
-
-set statusline+=%{NearestMethodOrFunction()}
-autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+"function! NearestMethodOrFunction() abort
+"  return get(b:, 'vista_nearest_method_or_function', '')
+"endfunction
+"
+"set statusline+=%{NearestMethodOrFunction()}
+"autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 
 " help 默认竖屏打开
 augroup vertical_help
