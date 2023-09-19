@@ -15,6 +15,11 @@
 			"command": "docker-langserver",
 			"filetypes": ["dockerfile"],
 			"args": ["--stdio"]
+		},
+		"bash": {
+			"command": "bash-language-server",
+			"args": ["start"],
+			"filetypes": ["sh"]
 		}
 	},
 	"javascript.suggestionActions.enabled": false

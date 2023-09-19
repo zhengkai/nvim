@@ -3,8 +3,7 @@ au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfil
 au BufRead,BufNewFile nginx.conf,nginx.tpl,vhost.conf setfiletype nginx
 au BufRead,BufNewFile */nginx/*.conf setfiletype nginx
 
-" PHP
-au FileType php setlocal keywordprg=pman
+au FileType scss setl iskeyword+=@-@
 
 " .zhengkai 文件高亮
 au BufRead,BufNewFile .zhengkai,.bash_alias setfiletype sh
@@ -13,7 +12,7 @@ au BufRead,BufNewFile .zhengkai,.bash_alias setfiletype sh
 au BufRead,BufNewFile *.sql set filetype=mysql
 
 " CSS in SuperTab
-au FileType css,less let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+"au FileType css,less let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
 " csv
 au BufRead,BufNewFile *.csv set filetype=csv
