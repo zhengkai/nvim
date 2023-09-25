@@ -2,7 +2,7 @@ set backup
 set backupdir=~/.config/nvim/backup
 
 function! BackupDir()
-	let l:backupdir=$HOME.'/.config/nvim/backup/'. strftime('%Y%m%d')
+	let l:backupdir=$HOME.'/.tmp/vim-backup/'. strftime('%Y%m%d')
 	if !isdirectory(l:backupdir)
 		call mkdir(l:backupdir, 'p', 0700)
 	endif

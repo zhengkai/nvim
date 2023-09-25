@@ -9,23 +9,23 @@ au FileType scss setl iskeyword+=@-@
 au BufRead,BufNewFile .zhengkai,.bash_alias setfiletype sh
 
 " .sql 文件默认为 MySQL 而不是 sql
-au BufRead,BufNewFile *.sql set filetype=mysql
+au BufRead,BufNewFile *.sql setfiletype mysql
 
 " CSS in SuperTab
 "au FileType css,less let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
 " csv
-au BufRead,BufNewFile *.csv set filetype=csv
+au BufRead,BufNewFile *.csv setfiletype csv
 
 " csv
-au BufRead,BufNewFile *.less set filetype=less
+au BufRead,BufNewFile *.less setfiletype less
 
 " hosts
-au BufRead,BufNewFile hosts set filetype=hosts
+au BufRead,BufNewFile hosts setfiletype hosts
 
-au BufRead,BufNewFile *.cue set filetype=cue
+au BufRead,BufNewFile *.cue setfiletype cue
 
-au BufRead,BufNewFile .babelrc,.eslintrc set filetype=javascript
+au BufRead,BufNewFile .babelrc,.eslintrc setfiletype javascript
 
 " skeleton
 au BufNewFile *.sh    0r ~/.config/nvim/skeleton/bash | call cursor(3, 0)
