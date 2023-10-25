@@ -14,7 +14,7 @@ return require('packer').startup(function()
 
 	use 'vim-scripts/YankRing.vim'
 
-	use 'python-lsp/python-lsp-server'
+	-- use 'python-lsp/python-lsp-server'
 
 	use 'rking/ag.vim'
 
