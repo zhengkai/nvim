@@ -28,6 +28,7 @@ au BufRead,BufNewFile *.cue setfiletype cue
 au BufRead,BufNewFile .babelrc,.eslintrc setfiletype javascript
 
 " skeleton
-au BufNewFile *.sh    0r ~/.config/nvim/skeleton/bash | call cursor(3, 0)
-au BufNewFile *.php   0r ~/.config/nvim/skeleton/php  | call cursor(3, 0)
-au BufNewFile *.html  0r ~/.config/nvim/skeleton/html | call cursor(8, 0)
+au BufNewFile *.sh     0r ~/.config/nvim/skeleton/bash | call cursor(3, 0)
+au BufNewFile *.php    0r ~/.config/nvim/skeleton/php  | call cursor(3, 0)
+au BufNewFile *.html   0r ~/.config/nvim/skeleton/html | call cursor(8, 0)
+au BufNewFile Makefile 0r ~/.config/nvim/skeleton/makefile | call cursor(4, 1)
