@@ -1,5 +1,7 @@
 set showtabline=2
 
+set mouse=
+
 set clipboard=unnamedplus
 
 autocmd TermOpen * startinsert
