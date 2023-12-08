@@ -17,4 +17,4 @@ au FileType php,sh,fstab,zsh,json,typescript,javascript,css,less,sass,scss,text,
 au FileType php,sh,fstab,zsh,json,typescript,javascript,css,less,sass,scss,text,html,dosini,vim,gitconfig,conf,nginx,mkd silent! set fileformat=unix
 au FileType go au BufWritePre * :silent! undojoin | silent! call RemoveTrailingWhitespace() | silent! Fmt
 
-au BufWritePre ~/conf/filelist,~/conf/apt/list-aptget,~/conf/apt/list-desktop :sort
+au BufWritePre ~/conf/filelist,~/conf/apt/list-aptget,~/conf/apt/list-desktop :sort u
