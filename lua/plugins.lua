@@ -2,6 +2,8 @@ return require('packer').startup(function()
 
 	use 'wbthomason/packer.nvim'
 
+	use 'nvim-treesitter/nvim-treesitter'
+
 	use 'haishanh/night-owl.vim'
 	use 'tomasiser/vim-code-dark'
 	use 'itchyny/lightline.vim'
