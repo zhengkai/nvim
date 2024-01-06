@@ -11,3 +11,5 @@ ru fzf.vim
 ru pair-complete.vim
 ru style.vim
 ru autocmd.vim
+
+lua require('config')
