@@ -73,3 +73,10 @@ nn <S-B> :Git blame<CR>
 nnoremap , :call emmet#expandAbbr(3,"")<cr>
 "inoremap , <c-r>=emmet#util#closePopup()<cr><c-r>=emmet#expandAbbr(0,"")<cr>
 "vnoremap , :call emmet#expandAbbr(3,"")<cr>
+
+nnoremap <F11> :call ShowHighlightGroup()<CR>
+function! ShowHighlightGroup()
+    let l:current_syntax = synIDattr(synID(line('.'), col('.'), 1), 'name')
+    echo 'Current syntax group: ' . l:current_syntax
+    echo 'Highlight group under cursor: ' . synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name')
+endfunction
