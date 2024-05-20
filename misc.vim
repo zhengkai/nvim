@@ -51,7 +51,11 @@ let g:ale_go_gopls_options = '-remote=auto'
 
 " ale
 let g:ale_fix_on_save = 1
-let g:ale_set_highlights = 0
+"let g:ale_set_highlights = 0
+let g:ale_sign_column_always = 0
+let g:ale_hover_cursor = 0
+let g:ale_virtualtext_cursor = 0
+let g:ale_virtualtext = 0
 let g:ale_sign_error = 'X'
 let g:ale_sign_warning = '!'
 let g:ale_sign_column_always = 1
