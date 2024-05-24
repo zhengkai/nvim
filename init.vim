@@ -1,4 +1,6 @@
-lua require('plugins')
+lua require('lazy')
+lua require('plugin.coc')
+lua require('plugin.misc')
 
 ru misc.vim
 ru backup.vim
