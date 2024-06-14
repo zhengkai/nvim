@@ -50,8 +50,8 @@ nn Q :qa<CR>
 " nmap <S-K> <Nop>
 
 " 找括号
-nmap { ?{<CR>
-nmap } /{<CR>
+nmap { [{
+nmap } ]}
 
 " 帮助 ( Ctrl + 2 )
 nn <C-E> <ESC>:vert bo help<Space>

@@ -13,7 +13,7 @@ return function()
 		{ 'tomasiser/vim-code-dark' },
 		{ 'itchyny/lightline.vim' },
 
-		{ 'fatih/vim-go' },
+		-- { 'fatih/vim-go' },
 
 		{ 'tpope/vim-fugitive' },
 
@@ -45,8 +45,6 @@ return function()
 		{ 'junegunn/fzf.vim' },
 
 		-- { 'eandrju/cellular-automaton.nvim' },
-
-		{ 'neoclide/coc.nvim', branch = 'release' },
 
 		{ 'pmizio/typescript-tools.nvim',
 			dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
