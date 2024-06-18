@@ -45,7 +45,8 @@ require("lazy").setup({
 
 	{ 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' },
 
-	-- { 'dense-analysis/ale' },
+	{ 'dense-analysis/ale' },
+	-- { 'mfussenegger/nvim-lint' },
 
 	{ 'mattn/emmet-vim' },
 
