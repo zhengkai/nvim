@@ -50,6 +50,7 @@ let g:go_gopls_options = ['-remote=auto']
 let g:ale_go_gopls_options = '-remote=auto'
 
 " ale
+" let g:ale_disable_lsp = 1
 let g:ale_completion_enabled = 0
 let g:ale_fix_on_save = 1
 "let g:ale_set_highlights = 0

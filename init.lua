@@ -1,4 +1,5 @@
 require('z')
+
 -- require('plugin.coc')
 -- require('plugin.misc')
 
@@ -14,4 +15,4 @@ vim.cmd('source ~/.config/nvim/pair-complete.vim')
 vim.cmd('source ~/.config/nvim/style.vim')
 vim.cmd('source ~/.config/nvim/autocmd.vim')
 
-require('config')
+-- require('config')

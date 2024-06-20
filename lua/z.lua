@@ -17,13 +17,8 @@ require("lazy").setup({
 	    'neoclide/coc.nvim',
 	    branch = 'release'
 	},
-	{ 'nvim-treesitter/nvim-treesitter',
-		run = function()
-			local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-			ts_update()
-		end
-	},
-	{ 'nvim-treesitter/playground', after = 'nvim-treesitter' },
+	-- { 'nvim-treesitter/nvim-treesitter' },
+	-- { 'nvim-treesitter/playground', after = 'nvim-treesitter' },
 
 	-- { 'haishanh/night-owl.vim' },
 	{ 'tomasiser/vim-code-dark' },
@@ -43,9 +38,9 @@ require("lazy").setup({
 
 	{ 'tomtom/tcomment_vim' },
 
-	{ 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' },
+	-- { 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' },
 
-	{ 'dense-analysis/ale' },
+	-- { 'dense-analysis/ale' },
 	-- { 'mfussenegger/nvim-lint' },
 
 	{ 'mattn/emmet-vim' },
@@ -61,10 +56,10 @@ require("lazy").setup({
 
 	-- { 'eandrju/cellular-automaton.nvim' },
 
-	{ 'pmizio/typescript-tools.nvim',
-		dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-		config = function()
-			require("typescript-tools").setup {}
-		end
-	},
+	--{ 'pmizio/typescript-tools.nvim',
+	--	dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+	--	config = function()
+	--		require("typescript-tools").setup {}
+	--	end
+	--},
 })
