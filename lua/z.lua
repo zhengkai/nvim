@@ -24,7 +24,7 @@ require("lazy").setup({
 	{ 'tomasiser/vim-code-dark' },
 	{ 'itchyny/lightline.vim' },
 
-	-- { 'fatih/vim-go' },
+	{ 'fatih/vim-go' },
 
 	{ 'tpope/vim-fugitive' },
 
@@ -40,7 +40,7 @@ require("lazy").setup({
 
 	-- { 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' },
 
-	-- { 'dense-analysis/ale' },
+	{ 'dense-analysis/ale' },
 	-- { 'mfussenegger/nvim-lint' },
 
 	{ 'mattn/emmet-vim' },
