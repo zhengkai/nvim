@@ -25,6 +25,8 @@ require("lazy").setup({
 	{ 'itchyny/lightline.vim' },
 
 	{ 'fatih/vim-go' },
+	
+    { 'github/copilot.vim', },
 
 	{ 'tpope/vim-fugitive' },
 
