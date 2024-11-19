@@ -15,4 +15,6 @@ vim.cmd('source ~/.config/nvim/pair-complete.vim')
 vim.cmd('source ~/.config/nvim/style.vim')
 vim.cmd('source ~/.config/nvim/autocmd.vim')
 
+-- require('yank')
+
 -- require('config')
