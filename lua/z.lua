@@ -54,6 +54,7 @@ require("lazy").setup({
 	-- 		vim.fn['fzf#install()']()
 	-- 	end 
 	-- },
+	{ 'junegunn/fzf' },
 	{ 'junegunn/fzf.vim' },
 
 	-- { 'eandrju/cellular-automaton.nvim' },

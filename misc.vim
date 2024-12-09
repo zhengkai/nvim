@@ -2,6 +2,8 @@ set showtabline=2
 
 set mouse=
 
+let g:go_tmp_path = '/tmp/zhengkai'
+
 set clipboard=unnamedplus
 
 autocmd TermOpen * startinsert
