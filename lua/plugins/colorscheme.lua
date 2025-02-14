@@ -8,7 +8,7 @@ return {
 			group_overrides = {
 				Normal = { bg = "#000000" },  -- 纯黑背景
 				VertSplit = { fg = "#666666", bg = "#000000" }, 
-				WinBar = { fg = "#000000", bg = "#0087BF" }, 
+				WinBarText = { fg = "#000000", bg = "#00afff" }, 
 			}
 		})
 		vim.cmd.colorscheme("vscode")
