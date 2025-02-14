@@ -4,7 +4,10 @@ return {
   priority = 1000,  -- 让它最先加载
   config = function()
     require("vscode").setup({
-      style = "dark"
+      style = "dark",
+      group_overrides = {
+        Normal = { bg = "#000000" },  -- 纯黑背景
+      }
     })
     vim.cmd.colorscheme("vscode")
   end
