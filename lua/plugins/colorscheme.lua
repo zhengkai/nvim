@@ -8,9 +8,12 @@ return {
 			group_overrides = {
 				Normal = { bg = "#000000" },  -- 纯黑背景
 				VertSplit = { fg = "#666666", bg = "#000000" }, 
-				WinBarText = { fg = "#000000", bg = "#00afff" }, 
+				LineNr = { fg = "#556688", bg = "#000000" },
+				CursorLineX = { bg = "#444444" },
 			}
 		})
+		vim.opt.cursorline = true
+		vim.opt.numberwidth = 5
 		vim.cmd.colorscheme("vscode")
 	end
 }

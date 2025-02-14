@@ -5,12 +5,12 @@ return {
 		config = function()
 			require("osc52").setup()
 			-- 让 `y` 自动复制到系统剪贴板（适用于 SSH）
-			local function copy()
-				if vim.v.event.operator == "y" then
-					require("osc52").copy_register("+")
-				end
-			end
-			vim.api.nvim_create_autocmd("TextYankPost", { callback = copy })
+			-- local function copy()
+			-- 	if vim.v.event.operator == "y" then
+			-- 		require("osc52").copy_register("+")
+			-- 	end
+			-- end
+			-- vim.api.nvim_create_autocmd("TextYankPost", { callback = copy })
 		end,
 	},
 
