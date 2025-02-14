@@ -1,7 +1,7 @@
 -- 备份
 
 vim.o.backup = true
-vim.o.backupdir = vim.fn.expand("~/.config/nvim/backup")
+vim.o.backupdir = vim.fn.expand("~/.tmp/vim-backup")
 
 local function BackupDir()
 	local backupdir = vim.fn.expand("~/.tmp/vim-backup/") .. os.date("%Y%m%d")
