@@ -16,7 +16,7 @@ require("lspconfig").ts_ls.setup({
 		-- 绑定 <leader>ca 到代码操作
 		vim.keymap.set("n", "ca", vim.lsp.buf.code_action, opts)
 	end,
-	capabilities = require("cmp_nvim_lsp").default_capabilities(), -- 如果你使用 nvim-cmp，可以启用补全功能
+	capabilities = require("cmp_nvim_lsp").default_capabilities(),
 })
 
 require("lspconfig").eslint.setup({
