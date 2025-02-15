@@ -18,9 +18,9 @@ require("config.lazy")
 require("config.cursor")
 require("config.vert")
 require("config.winbar")
-require("config.format-lua")
+require("config.format")
 
-function update_and_quit()
+function UupdateAndQuit()
 	-- 获取 lazy.nvim 的 API
 	local lazy = require("lazy")
 	print('start')
