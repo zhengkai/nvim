@@ -19,3 +19,21 @@ require("config.cursor")
 require("config.vert")
 require("config.winbar")
 require("config.format-lua")
+
+function update_and_quit()
+	-- 获取 lazy.nvim 的 API
+	local lazy = require("lazy")
+	print('start')
+
+	-- 执行 Lazy update
+	lazy.update({ wait = true }, function(success)
+		if success then
+			print('Update completed successfully')
+		else
+			print('Update failed')
+		end
+		-- 当 update 完成后，退出 Neovim
+		print('end')
+		vim.cmd("qa")
+	end)
+end

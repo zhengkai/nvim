@@ -10,6 +10,7 @@ return {
 			require("lsp/cpp")
 			require("lsp/ts")
 			require("lsp/python")
+			require("lsp/lua")
 		end,
 	},
 	{
@@ -22,12 +23,14 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { 
-					"gopls", 
-					"clangd", 
-					"ts_ls", 
-					"eslint", 
+				automatic_installation = true,
+				ensure_installed = {
+					"gopls",
+					"clangd",
+					"ts_ls",
+					"eslint",
 					"pyright",
+					"lua_ls",
 				},
 			})
 		end,
