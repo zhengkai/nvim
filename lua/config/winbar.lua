@@ -5,7 +5,7 @@ local function update_winbar()
 		if vim.api.nvim_get_current_win() == vim.fn.win_getid() then
 			vim.wo.winbar = "%#WinBarActive# %F %#WinBarActiveBg#"
 		else
-			vim.wo.winbar = "%#WinBarBlur# %F "
+			vim.wo.winbar = "%#WinBarBlur# %f "
 		end
 	end
 end
@@ -17,7 +17,7 @@ local function reset_winbar()
 
 	-- 检查窗口是否为悬浮窗口
 	if config.relative == "" then
-		vim.wo.winbar = "%#WinBarBlur# %F "
+		vim.wo.winbar = "%#WinBarBlur# %f "
 	end
 end
 
