@@ -8,6 +8,7 @@
 * golang doc 跳转
 * lazy theme
 * git 插件
+* mason 直接用现有程序（clangd/efm），树莓派无法编译
 
 ## DONE
 
