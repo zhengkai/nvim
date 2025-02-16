@@ -8,9 +8,10 @@
 * golang doc 跳转
 * lazy theme
 * git 插件
-* skeleton
 
 ## DONE
 
 * treesitter-context
 * lsp 报错不要新启一行（`vim.opt.signcolumn = 'number'`）
+* skeleton
+* filetype (`hosts`/`nginx`/`env`/`crontab`/`mysql`)
