@@ -19,6 +19,7 @@ require("config.cursor")
 require("config.vert")
 require("config.winbar")
 require("config.format")
+require("config.make")
 
 function UupdateAndQuit()
 	-- 获取 lazy.nvim 的 API

@@ -7,7 +7,7 @@ require('lspconfig').lua_ls.setup({
 			},
 			diagnostics = {
 				-- 获取全局变量
-				globals = {'vim'},
+				globals = { 'vim' },
 			},
 			workspace = {
 				-- 指定工作目录
@@ -19,8 +19,12 @@ require('lspconfig').lua_ls.setup({
 			},
 		},
 	},
+	on_attach = function(client, bufnr)
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "Show documentation" })
+		vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = bufnr, desc = "Find references" })
+		vim.keymap.set("n", "rn", vim.lsp.buf.rename, { buffer = bufnr, desc = "Rename symbol" })
+	end,
 })
-
 
 vim.api.nvim_create_autocmd('BufWritePre', {
 	pattern = '*.lua', -- 仅对 Lua 文件生效

@@ -6,6 +6,10 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 		},
 		config = function()
+			vim.keymap.set('n', '<C-d>', function()
+				vim.diagnostic.open_float() -- 显示当前行的诊断信息
+			end, { noremap = true, silent = true })
+
 			require("lsp/golang")
 			require("lsp/cpp")
 			require("lsp/ts")
