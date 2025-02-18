@@ -55,11 +55,11 @@ return {
 			require("mason-lspconfig").setup({
 				automatic_installation = true,
 				ensure_installed = {
-					"gopls",
-					"clangd",
+					-- "gopls",
+					-- "clangd",
 					"ts_ls",
-					"eslint",
-					"pyright",
+					-- "eslint",
+					-- "pyright",
 					"lua_ls",
 					"efm",
 				},

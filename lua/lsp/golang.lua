@@ -1,8 +1,19 @@
+local function setup_lsp(config)
+	return vim.tbl_extend('force', {
+		capabilities = vim.lsp.protocol.make_client_capabilities(),
+		on_init = function(client)
+			if client.config.flags then
+				client.config.flags.allow_incremental_sync = true
+			end
+		end
+	}, config)
+end
+
 local function open_go_doc()
 	local params = vim.lsp.util.make_position_params()
 	params.context = { includeDeclaration = true }
 
-	vim.lsp.buf_request(0, "textDocument/definition", params, function(err, result, ctx, config)
+	vim.lsp.buf_request(0, "textDocument/definition", params, function(err, result)
 		if err then
 			vim.notify("Error getting symbol definition: " .. err.message, vim.log.levels.ERROR)
 			return
@@ -14,7 +25,6 @@ local function open_go_doc()
 		end
 
 		local uri = result[1].uri
-		local range = result[1].range
 
 		-- 提取包名和符号名
 		local filepath = vim.uri_to_fname(uri)
@@ -31,8 +41,10 @@ end
 
 -- 配置 gopls
 require("lspconfig").gopls.setup({
+	name = 'gopls',
+	cmd = { 'gopls' },
 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
-	on_attach = function(client, bufnr)
+	on_attach = function(_, bufnr)
 		-- 跳转定义
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "Go to definition" })
 
@@ -59,31 +71,5 @@ require("lspconfig").gopls.setup({
 			end,
 		})
 	end,
+	filetypes = { 'go', 'gomod' },
 })
-
--- 自动补全配置
---local cmp = require("cmp")
---cmp.setup({
---	snippet = {
---		expand = function(args)
---			vim.fn["vsnip#anonymous"](args.body)
---		end,
---	},
---	mapping = {
---		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4)),
---		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4)),
---		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
---		["<C-y>"] = cmp.config.disable,
---		["<C-e>"] = cmp.mapping({
---			i = cmp.mapping.abort(),
---			c = cmp.mapping.close(),
---		}),
---		["<CR>"] = cmp.mapping.confirm({ select = true }),
---	},
---	sources = cmp.config.sources({
---		{ name = "nvim_lsp" },
---		{ name = "vsnip" },
---	}, {
---			{ name = "buffer" },
---		}),
---})
