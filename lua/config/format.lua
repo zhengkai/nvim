@@ -4,6 +4,18 @@ local function trim_space()
 	vim.cmd([[%s/\s\+$//e]])    -- 删除结尾空格
 	vim.cmd([[%s/\n\{3,}/\r\r/e]]) -- 删除多余空行
 	vim.cmd([[%s/\n\+\%$//e]])  -- 删除文件尾部多余换行
+
+	local max_y = vim.api.nvim_buf_line_count(0)
+	if pos[1] > max_y then
+		pos[1] = max_y
+	end
+
+	local max_x = #(vim.api.nvim_buf_get_lines(0, pos[1] - 1, pos[1], false)[1] or "")
+	print(max_x)
+	if pos[2] > max_x then
+		pos[2] = max_x
+	end
+
 	vim.api.nvim_win_set_cursor(0, pos)
 end
 
