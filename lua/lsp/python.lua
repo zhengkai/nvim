@@ -1,13 +1,13 @@
 -- 设置 Mason 自动安装 LSP 服务器
-require("mason").setup({
-	ui = {
-		icons = {
-			package_installed = "✓",
-			package_pending = "➜",
-			package_uninstalled = "✗",
-		},
-	},
-})
+-- require("mason").setup({
+-- 	ui = {
+-- 		icons = {
+-- 			package_installed = "✓",
+-- 			package_pending = "➜",
+-- 			package_uninstalled = "✗",
+-- 		},
+-- 	},
+-- })
 
 -- 配置 Pyright LSP 服务器
 require("lspconfig").pyright.setup({
