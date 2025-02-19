@@ -5,16 +5,18 @@ return {
 		"neovim/nvim-lspconfig",
 	},
 	cond = function()
-		-- return vim.fn.executable("gopls")
-		return true
+		return vim.fn.executable("gopls")
 	end,
 	config = function()
 		require("go").setup({
-			goimports = { "goimport" },
+			goimports = { "gopls" },
 			gofmt = "gopls",
-			lsp_cfg = true,
-			lsp_keymaps = true,
+			lsp_cfg = false,
+			lsp_keymaps = false,
 		})
+		vim.keymap.set('n', '<Esc>e', function()
+			require('go.iferr').run()
+		end, { silent = true, desc = "Go generate if err" })
 	end,
 	event = { "CmdlineEnter" },
 	ft = { "go", 'gomod' },

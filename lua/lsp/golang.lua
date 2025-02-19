@@ -48,9 +48,17 @@ require("lspconfig").gopls.setup({
 
 		-- 保存时格式化
 		vim.api.nvim_create_autocmd("BufWritePre", {
+
 			buffer = bufnr,
 			callback = function()
 				vim.lsp.buf.format({ async = false })
+				vim.lsp.buf.code_action({
+					context = {
+						only = { 'source.organizeImports' },
+						diagnostics = {},
+					},
+					apply = true
+				})
 			end,
 		})
 	end,

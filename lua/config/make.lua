@@ -98,7 +98,7 @@ local function doMake()
 		localMap.out = re.stdout
 		localMap.err = re.stderr
 
-		local msg = ", Alt + m to view log"
+		local msg = ", Alt + n to view log"
 		if re.code ~= 0 then
 			vim.schedule(function()
 				vim.api.nvim_echo({ { "Make failed" .. msg, "ErrorMsg" } }, true, {})
@@ -109,6 +109,6 @@ local function doMake()
 	end)
 end
 
-vim.keymap.set('n', '<C-M>', doMake)
+vim.keymap.set('n', '<C-n>', doMake)
 vim.keymap.set('n', '<Esc>x', outWin)
-vim.keymap.set('n', '<Esc>m', outNotify)
+vim.keymap.set('n', '<Esc>n', outNotify)
