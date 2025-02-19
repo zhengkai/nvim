@@ -7,8 +7,6 @@
 * make 跟 lsp gr 冲突
 * golang doc 跳转
 * lazy theme
-* git 插件
-* mason 直接用现有程序（clangd/efm），树莓派无法编译
 
 ## DONE
 
@@ -16,3 +14,5 @@
 * lsp 报错不要新启一行（`vim.opt.signcolumn = 'number'`）
 * skeleton
 * filetype (`hosts`/`nginx`/`env`/`crontab`/`mysql`)
+* mason 直接用现有程序（clangd/efm），树莓派无法编译
+* git 插件

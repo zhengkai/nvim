@@ -1,9 +1,9 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
-		"nvim-lua/plenary.nvim",  -- Telescope 的依赖
-		"nvim-telescope/telescope-fzf-native.nvim",  -- fzf 原生支持
-		build = "make",  -- 如果需要编译 fzf-native
+		"nvim-lua/plenary.nvim",              -- Telescope 的依赖
+		"nvim-telescope/telescope-fzf-native.nvim", -- fzf 原生支持
+		build = "make",                       -- 如果需要编译 fzf-native
 	},
 	config = function()
 		-- 加载 Telescope
@@ -17,13 +17,11 @@ return {
 				mappings = {
 					i = {
 						["<CR>"] = function(prompt_bufnr)
-							local actions = require("telescope.actions")
 							actions.file_vsplit(prompt_bufnr)
 						end,
 					},
 					n = {
 						["<CR>"] = function(prompt_bufnr)
-							local actions = require("telescope.actions")
 							actions.file_vsplit(prompt_bufnr)
 						end,
 					},
@@ -31,15 +29,15 @@ return {
 				-- 默认使用 fzf 排序器
 				sorting_strategy = "ascending",
 				layout_config = {
-					prompt_position = "top",  -- 输入框在顶部
+					prompt_position = "top", -- 输入框在顶部
 				},
 			},
 			extensions = {
 				fzf = {
-					fuzzy = true,  -- 启用模糊查找
-					override_generic_sorter = true,  -- 覆盖默认的排序器
+					fuzzy = true,    -- 启用模糊查找
+					override_generic_sorter = true, -- 覆盖默认的排序器
 					override_file_sorter = true,
-					case_mode = "smart_case",  -- 智能大小写匹配
+					case_mode = "smart_case", -- 智能大小写匹配
 				},
 			},
 		})

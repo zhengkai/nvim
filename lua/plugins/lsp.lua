@@ -31,12 +31,24 @@ return {
 				vim.notify(table.concat(messages, "\n\n"), vim.log.levels.INFO)
 			end, { noremap = true, silent = true })
 
-			require("lsp/golang")
-			require("lsp/cpp")
-			require("lsp/ts")
-			require("lsp/python")
-			require("lsp/lua")
-			require("lsp/bash")
+			if vim.fn.executable("pyright-langserver") then
+				require("lsp/python")
+			end
+			if vim.fn.executable("gopls") then
+				require("lsp/golang")
+			end
+			if vim.fn.executable("clangd") then
+				require("lsp/cpp")
+			end
+			if vim.fn.executable("typescript-language-server") then
+				require("lsp/ts")
+			end
+			if vim.fn.executable("lua-language-server") then
+				require("lsp/lua")
+			end
+			if vim.fn.executable(" bash-language-server") then
+				require("lsp/bash")
+			end
 		end,
 	},
 	{

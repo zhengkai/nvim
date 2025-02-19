@@ -10,7 +10,6 @@ return {
 	},
 	config = function()
 		local cmp = require 'cmp'
-
 		cmp.setup({
 			matching = {
 				disallow_fuzzy_matching = true,
@@ -35,17 +34,17 @@ return {
 
 				['<S-Tab>'] = cmp.mapping(function(fallback)
 					if cmp.visible() then
-						cmp.select_prev_item()            -- 如果补全菜单可见，选择上一个补全项
+						cmp.select_prev_item()             -- 如果补全菜单可见，选择上一个补全项
 					else
-						fallback()                        -- 否则，执行默认的 Shift+Tab 行为
+						fallback()                         -- 否则，执行默认的 Shift+Tab 行为
 					end
-				end, { 'i', 's' }),                       -- 在插入模式和代码片段模式下生效
+				end, { 'i', 's' }),                        -- 在插入模式和代码片段模式下生效
 				['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4)), -- 向上滚动文档
 				['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4)), -- 向下滚动文档
 				['<C-Space>'] = cmp.mapping(cmp.mapping.complete()), -- 触发补全
 				['<C-e>'] = cmp.mapping({
-					i = cmp.mapping.abort(),              -- 取消补全
-					c = cmp.mapping.close(),              -- 关闭补全窗口
+					i = cmp.mapping.abort(),               -- 取消补全
+					c = cmp.mapping.close(),               -- 关闭补全窗口
 				}),
 				['<CR>'] = cmp.mapping.confirm({ select = true }), -- 确认选择
 			},
@@ -54,7 +53,12 @@ return {
 				{ name = 'vsnip' }, -- vsnip 提供的代码片段
 				{ name = 'buffer' }, -- 当前缓冲区中的单词
 				{ name = 'path' }, -- 文件路径
-			})
+			}),
+			sorting = {
+				comparators = {
+					cmp.config.compare.sort_text,
+				},
+			},
 		})
 
 		-- 为 `/` 和 `?` 设置 cmdline 补全
@@ -68,14 +72,14 @@ return {
 		-- 为 `:` 设置 cmdline 补全
 		cmp.setup.cmdline(':', {
 			completion = {
-				keyword_length = 3,
+				keyword_length = 4,
 			},
 			mapping = cmp.mapping.preset.cmdline(),
 			sources = cmp.config.sources({
 				{ name = 'path' }
 			}, {
 				{ name = 'cmdline' }
-			})
+			}),
 		})
 	end
 }
