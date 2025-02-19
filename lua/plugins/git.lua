@@ -10,27 +10,19 @@ return {
 					vim.keymap.set(mode, l, r, opts)
 				end
 
-				map('n', '<leader>tb', function()
+				map('n', '<leader>gt', function()
 					vim.g.show_git_blame = not vim.g.show_git_blame
-					gs.toggle_signs(vim.g.show_git_blame) -- 显示 Git 变更标记
+					gs.toggle_signs(not vim.g.show_git_blame) -- 行号位置显示 Git 变更标记
 					gs.toggle_current_line_blame(vim.g.show_git_blame) -- 显示每行 blame
-					print('git blame')
 				end)
-				-- { buffer = bufnr, desc = 'Git Blame Line' })
 
-				map('n', '<S-B>', gs.toggle_current_line_blame)
-
-				map('n', '<leader>hb', function()
+				map('n', '<leader>gb', function()
 					gs.blame_line({ full = true })
 				end)
 
 				-- Navigation
-				map('n', ']c', function()
-					if vim.wo.diff then
-						vim.cmd.normal({ ']c', bang = true })
-					else
-						gs.nav_hunk('next')
-					end
+				map('n', '<leader>gn', function()
+					gs.nav_hunk('next')
 				end)
 			end,
 		})
