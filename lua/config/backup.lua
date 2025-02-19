@@ -10,8 +10,6 @@ local function BackupDir()
 		vim.fn.mkdir(backupdir, "p", 448)
 	end
 
-	print(backupdir)
-
 	vim.o.backupdir = backupdir
 	vim.o.backupext = "-" .. os.date("%H%M%S")
 end
