@@ -3,11 +3,12 @@ vim.o.laststatus = 3
 vim.wo.wrap = false
 vim.g.loaded_perl_provider = 0
 
+-- quickfix 窗口自动关闭
 vim.api.nvim_create_autocmd("WinLeave", {
-	pattern = "quickfix",
 	callback = function()
-		print("hello quickfix")
-		vim.cmd("cclose")
+		if vim.tbl_contains({ "qf" }, vim.bo.filetype) then
+			vim.cmd("q")
+		end
 	end,
 })
 
