@@ -17,3 +17,22 @@ skeletionAu('*.php', 'php', 3, 0)
 skeletionAu('*.html', 'html', 8, 0)
 skeletionAu('Makefile', 'makefile', 4, 1)
 skeletionAu('*.proto', 'proto', 5, 9)
+
+-- golang
+vim.api.nvim_create_autocmd("BufNewFile", {
+	pattern = "*.go",
+	callback = function()
+		local package_name = vim.fn.expand('%:p:h:t')
+		local template = {
+			'package ' .. package_name,
+			'',
+			'import "fmt"',
+			'',
+			'func foo() {',
+			'	fmt.Println(`test`)',
+			'}',
+		}
+		vim.api.nvim_buf_set_lines(0, 0, 0, false, template)
+		vim.api.nvim_win_set_cursor(0, { 6, 1 })
+	end,
+})
