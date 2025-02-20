@@ -2,6 +2,7 @@ vim.o.directory = "/tmp/zhengkai"
 vim.o.laststatus = 3
 vim.wo.wrap = false
 vim.g.loaded_perl_provider = 0
+vim.opt.clipboard = "unnamedplus"
 
 -- quickfix 窗口自动关闭
 vim.api.nvim_create_autocmd("WinLeave", {
