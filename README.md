@@ -2,9 +2,19 @@
 
     git clone https://github.com/zhengkai/nvim ~/.config/nvim
 
-## TODO
+    
+## 热键
 
-* lazy theme
+lsp 里
+
+* `K` 查看文档
+* `gr` 查看引用
+* `rn` 改名
+* `Ctrl+d` 完整诊断信息
+
+leap
+
+* `空格 l` 两字母跳转
 
 ## DONE
 

@@ -12,6 +12,7 @@ local function skeletionAu(filetype, file, line, col)
 end
 
 -- 设置不同文件类型的骨架
+skeletionAu('*.h', 'h', 3, 0)
 skeletionAu('*.sh', 'bash', 3, 0)
 skeletionAu('*.php', 'php', 3, 0)
 skeletionAu('*.html', 'html', 8, 0)
