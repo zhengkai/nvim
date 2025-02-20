@@ -6,12 +6,8 @@ require("lspconfig").clangd.setup({
 				vim.lsp.buf.format({ async = false }) -- 同步格式化
 			end,
 		})
-		local opts = { noremap = true, silent = true }
 
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = bufnr, desc = "Find references" })
-		vim.keymap.set("n", "rn", vim.lsp.buf.rename, opts)
-
+		require("lsp.common").keyMap("clangd", bufnr)
 	end,
 	capabilities = require('cmp_nvim_lsp').default_capabilities(),
 })

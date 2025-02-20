@@ -1,4 +1,5 @@
 require('lspconfig').lua_ls.setup({
+	filetypes = { 'lua' },
 	settings = {
 		Lua = {
 			runtime = {
@@ -20,16 +21,13 @@ require('lspconfig').lua_ls.setup({
 		},
 	},
 	on_attach = function(_, bufnr)
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "Show documentation" })
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = bufnr, desc = "Find references" })
-		vim.keymap.set("n", "rn", vim.lsp.buf.rename, { buffer = bufnr, desc = "Rename symbol" })
-	end,
-})
+		require("lsp.common").keyMap("lua", bufnr)
 
-vim.api.nvim_create_autocmd('BufWritePre', {
-	pattern = '*.lua', -- 仅对 Lua 文件生效
-	callback = function()
-		-- 调用 LSP 格式化
-		vim.lsp.buf.format({ async = false }) -- async = false 表示同步格式化
+		vim.api.nvim_create_autocmd('BufWritePre', {
+			buffer = bufnr,
+			callback = function()
+				vim.lsp.buf.format({ async = false })
+			end,
+		})
 	end,
 })

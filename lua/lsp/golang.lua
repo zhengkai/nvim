@@ -1,7 +1,6 @@
 local function get_doc_link()
 	local params = vim.lsp.util.make_position_params()
-
-	vim.lsp.buf_request(0, 'textDocument/hover', params, function(err, result, ctx, config)
+	vim.lsp.buf_request(0, 'textDocument/hover', params, function(err, result)
 		if err then
 			print("doc not found, error:", err)
 			return
@@ -31,24 +30,12 @@ require("lspconfig").gopls.setup({
 	on_attach = function(_, bufnr)
 		vim.keymap.set("n", "<C-u>", get_doc_link, { buffer = bufnr, desc = "Go to definition" })
 
-		-- 跳转定义
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "Go to definition" })
-
-		-- rename
-		vim.keymap.set("n", "rn", vim.lsp.buf.rename, { buffer = bufnr, desc = "Rename symbol" })
-
-		-- 跳转类型定义
 		vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, { buffer = bufnr, desc = "Go to type definition" })
 
-		-- 显示文档
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "Show documentation" })
-
-		-- 反查引用
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = bufnr, desc = "Find references" })
+		require("lsp.common").keyMap("gopls", bufnr)
 
 		-- 保存时格式化
 		vim.api.nvim_create_autocmd("BufWritePre", {
-
 			buffer = bufnr,
 			callback = function()
 				vim.lsp.buf.format({ async = false })
