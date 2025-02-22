@@ -23,6 +23,23 @@ local function get_doc_link()
 	end)
 end
 
+function GoImports(bufnr)
+	local bufname = vim.api.nvim_buf_get_name(bufnr)
+
+	-- 使用系统的命令调用 goimports，并捕获输出（标准输出和错误）
+	local cmd = "goimports " .. bufname
+	local handle = io.popen(cmd)
+	if handle == nil then
+		return
+	end
+	local result = handle:read("*a")
+	handle:close()
+
+	-- 将结果写回到缓冲区
+	local lines = vim.split(result, "\n")
+	vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
+end
+
 require("lspconfig").gopls.setup({
 	name = 'gopls',
 	cmd = { 'gopls' },
@@ -39,13 +56,7 @@ require("lspconfig").gopls.setup({
 			buffer = bufnr,
 			callback = function()
 				vim.lsp.buf.format({ async = false })
-				vim.lsp.buf.code_action({
-					context = {
-						only = { 'source.organizeImports' },
-						diagnostics = {},
-					},
-					apply = true
-				})
+				GoImports(bufnr)
 			end,
 		})
 	end,
