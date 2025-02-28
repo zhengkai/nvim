@@ -62,6 +62,19 @@ require("lspconfig").gopls.setup({
 	name = 'gopls',
 	cmd = { 'gopls' },
 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+	settings = {
+		gopls = {
+			analyses = {
+				unusedparams = true,
+				unreachable = true,
+				nilness = true,
+				shadow = true,
+				unusedwrite = true,
+				useany = true,
+			},
+			staticcheck = true,
+		},
+	},
 	on_attach = function(_, bufnr)
 		vim.keymap.set("n", "<C-u>", get_doc_link, { buffer = bufnr, desc = "Go to definition" })
 
