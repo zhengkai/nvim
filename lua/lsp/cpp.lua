@@ -1,4 +1,12 @@
 require("lspconfig").clangd.setup({
+	cmd = {
+		"clangd",
+		"--background-index",
+		"--clang-tidy",
+		"--compile-commands-dir=build",
+		"--header-insertion=iwyu",
+		"--completion-style=detailed",
+	},
 	filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 	on_attach = function(_, bufnr)
 		vim.api.nvim_create_autocmd("BufWritePre", {
