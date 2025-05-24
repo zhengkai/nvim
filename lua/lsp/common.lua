@@ -1,5 +1,9 @@
 local M = {}
 
+local caps = require('cmp_nvim_lsp').default_capabilities()
+caps.offsetEncoding = { "utf-16" }
+M.capabilities = caps
+
 function M.keyMap(name, bufnr)
 	local function map(mode, key, fn, desc)
 		local opts = {

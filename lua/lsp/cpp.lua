@@ -1,3 +1,5 @@
+local common = require("lsp.common")
+
 require("lspconfig").clangd.setup({
 	cmd = {
 		"clangd",
@@ -15,7 +17,7 @@ require("lspconfig").clangd.setup({
 				vim.lsp.buf.format({ async = false }) -- 同步格式化
 			end,
 		})
-		require("lsp.common").keyMap("clangd", bufnr)
+		common.keyMap("clangd", bufnr)
 	end,
-	capabilities = require('cmp_nvim_lsp').default_capabilities(),
+	capabilities = common.capabilities,
 })

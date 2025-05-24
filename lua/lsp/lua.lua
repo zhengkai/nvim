@@ -1,3 +1,5 @@
+local common = require("lsp.common")
+
 require('lspconfig').lua_ls.setup({
 	filetypes = { 'lua' },
 	settings = {
@@ -21,7 +23,7 @@ require('lspconfig').lua_ls.setup({
 		},
 	},
 	on_attach = function(_, bufnr)
-		require("lsp.common").keyMap("lua", bufnr)
+		common.keyMap("lua", bufnr)
 
 		vim.api.nvim_create_autocmd('BufWritePre', {
 			buffer = bufnr,
@@ -30,4 +32,5 @@ require('lspconfig').lua_ls.setup({
 			end,
 		})
 	end,
+	capabilities = common.capabilities,
 })

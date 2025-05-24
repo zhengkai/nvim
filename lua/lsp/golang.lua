@@ -1,3 +1,5 @@
+local common = require("lsp.common")
+
 local function get_doc_link()
 	local params = vim.lsp.util.make_position_params()
 	vim.lsp.buf_request(0, 'textDocument/hover', params, function(err, result)
@@ -61,7 +63,7 @@ end
 require("lspconfig").gopls.setup({
 	name = 'gopls',
 	cmd = { 'gopls' },
-	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+	capabilities = common.capabilities,
 	settings = {
 		gopls = {
 			analyses = {
@@ -80,7 +82,7 @@ require("lspconfig").gopls.setup({
 
 		vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, { buffer = bufnr, desc = "Go to type definition" })
 
-		require("lsp.common").keyMap("gopls", bufnr)
+		common.keyMap("gopls", bufnr)
 
 		-- 保存时格式化
 		vim.api.nvim_create_autocmd("BufWritePre", {

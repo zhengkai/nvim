@@ -57,5 +57,12 @@ return {
 				hint_prefix = "🐾 ",
 			})
 		end
-	}
+	},
+	{
+		'ray-x/guihua.lua',
+		run = 'cd lua/fzy && make'
+	},
+	'mfussenegger/nvim-dap',
+	'theHamsta/nvim-dap-virtual-text',
+	'rcarriga/nvim-dap-ui',
 }
