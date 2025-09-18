@@ -22,9 +22,15 @@ au(".rtorrent.rc", function()
 end)
 
 -- crontab
-au("crontab", function()
-	vim.bo.tabstop = 10
-end)
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "crontab",
+	callback = function()
+		vim.bo.tabstop = 10
+		vim.bo.softtabstop = 10
+		vim.bo.shiftwidth = 10
+		vim.bo.expandtab = false
+	end
+})
 
 -- nginx
 au({
