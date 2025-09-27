@@ -11,7 +11,6 @@ local function trim_space()
 	end
 
 	local max_x = #(vim.api.nvim_buf_get_lines(0, pos[1] - 1, pos[1], false)[1] or "")
-	print(max_x)
 	if pos[2] > max_x then
 		pos[2] = max_x
 	end
