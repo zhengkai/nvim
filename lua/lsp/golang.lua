@@ -80,8 +80,6 @@ require("lspconfig").gopls.setup({
 	on_attach = function(_, bufnr)
 		vim.keymap.set("n", "<C-u>", get_doc_link, { buffer = bufnr, desc = "Go to definition" })
 
-		vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, { buffer = bufnr, desc = "Go to type definition" })
-
 		common.keyMap("gopls", bufnr)
 
 		-- 保存时格式化

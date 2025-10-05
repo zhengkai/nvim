@@ -11,8 +11,6 @@ require("lspconfig").clangd.setup({
 	},
 	filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 	on_attach = function(client, bufnr)
-		client.server_capabilities.documentFormattingProvider = false
-		client.server_capabilities.documentRangeFormattingProvider = false
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			buffer = bufnr,
 			callback = function()
