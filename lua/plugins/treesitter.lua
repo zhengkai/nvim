@@ -59,13 +59,6 @@ return {
 					enable_autocmd = false,
 				},
 
-				-- 启用 treesitter 的 rainbow 括号
-				rainbow = {
-					enable = true,
-					extended_mode = true,
-					max_file_lines = nil,
-				},
-
 				-- 启用 treesitter 的 playground
 				playground = {
 					enable = false,
