@@ -1,6 +1,6 @@
 local common = require("lsp.common")
 
-require("lspconfig").ts_ls.setup({
+vim.lsp.config('ts_ls', {
 	on_attach = function(_, bufnr)
 		common.keyMap("ts_ls", bufnr)
 

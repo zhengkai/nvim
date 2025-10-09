@@ -1,4 +1,4 @@
-require("lspconfig").pyright.setup({
+vim.lsp.config('pyright', {
 	on_attach = function(_, bufnr)
 		require("lsp.common").keyMap("pyright", bufnr)
 	end,

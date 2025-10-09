@@ -60,7 +60,7 @@ local function syncOrganizeImports()
 	end
 end
 
-require("lspconfig").gopls.setup({
+vim.lsp.config("gopls", {
 	name = 'gopls',
 	cmd = { 'gopls' },
 	capabilities = common.capabilities,
