@@ -1,6 +1,6 @@
 local common = require("lsp.common")
 
-vim.lsp.config("clangd", {
+vim.lsp.enable("clangd", {
 	cmd = {
 		"clangd",
 		"--background-index",
