@@ -29,24 +29,31 @@ return {
 				vim.notify(table.concat(messages, "\n\n"), vim.log.levels.INFO)
 			end, { noremap = true, silent = true })
 
+			require("lsp/python")
+			require("lsp/golang")
+			require("lsp/cpp")
+			require("lsp/ts")
+			require("lsp/lua")
+			require("lsp/bash")
+
 			-- 有对应 lsp server 时才加载
 			if vim.fn.executable("pyright-langserver") then
-				require("lsp/python")
+				vim.lsp.enable('pyright', true)
 			end
 			if vim.fn.executable("gopls") then
-				require("lsp/golang")
+				vim.lsp.enable('gopls', true)
 			end
 			if vim.fn.executable("clangd") then
-				require("lsp/cpp")
+				vim.lsp.enable('clangd', true)
 			end
 			if vim.fn.executable("typescript-language-server") then
-				require("lsp/ts")
+				vim.lsp.enable('ts_ls', true)
 			end
 			if vim.fn.executable("lua-language-server") then
-				require("lsp/lua")
+				vim.lsp.enable('lua_ls', true)
 			end
-			if vim.fn.executable(" bash-language-server") then
-				require("lsp/bash")
+			if vim.fn.executable("bash-language-server") then
+				vim.lsp.enable('bashls', true)
 			end
 		end,
 	},

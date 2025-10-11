@@ -1,6 +1,6 @@
 local common = require("lsp.common")
 
-vim.lsp.enable('lua_ls', {
+vim.lsp.config('lua_ls', {
 	filetypes = { 'lua' },
 	settings = {
 		Lua = {

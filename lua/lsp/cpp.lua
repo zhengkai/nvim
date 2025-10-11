@@ -1,6 +1,6 @@
 local common = require("lsp.common")
 
-vim.lsp.enable("clangd", {
+vim.lsp.config("clangd", {
 	cmd = {
 		"clangd",
 		"--background-index",
@@ -9,8 +9,8 @@ vim.lsp.enable("clangd", {
 		"--header-insertion=iwyu",
 		"--completion-style=detailed",
 	},
-	filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
-	on_attach = function(client, bufnr)
+	filetypes = { "c", "cpp", "h", "hpp", "cuda" },
+	on_attach = function(_, bufnr)
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			buffer = bufnr,
 			callback = function()

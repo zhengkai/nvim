@@ -1,6 +1,6 @@
 local common = require("lsp.common")
 
-vim.lsp.enable('bashls', {
+vim.lsp.config('bashls', {
 	on_attach = function(_, bufnr)
 		common.keyMap("bashls", bufnr)
 	end,
