@@ -9,7 +9,7 @@ vim.lsp.config("clangd", {
 		"--header-insertion=iwyu",
 		"--completion-style=detailed",
 	},
-	filetypes = { "c", "cpp", "h", "hpp", "cuda" },
+	filetypes = { "c", "cpp", "h", "hpp", "ixx", "cuda" },
 	on_attach = function(_, bufnr)
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			buffer = bufnr,

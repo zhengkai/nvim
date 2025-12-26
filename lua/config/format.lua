@@ -1,3 +1,9 @@
+vim.filetype.add({
+	extension = {
+		ixx = "cpp",
+	},
+})
+
 local function trim_space()
 	local pos = vim.api.nvim_win_get_cursor(0)
 	vim.bo.fileformat = "unix"
