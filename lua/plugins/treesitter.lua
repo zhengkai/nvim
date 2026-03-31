@@ -5,7 +5,7 @@ return {
 		config = function()
 			require('nvim-treesitter.configs').setup({
 				modules = {},
-				auto_install = {},
+				auto_install = true,
 				ignore_install = {},
 				sync_install = false,
 				-- 启用语法高亮
@@ -96,6 +96,7 @@ return {
 					"html",
 					"javascript",
 					"json",
+					"proto",
 					"lua",
 					"python",
 					"rust",
