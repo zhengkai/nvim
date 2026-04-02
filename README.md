@@ -2,7 +2,6 @@
 
     git clone https://github.com/zhengkai/nvim ~/.config/nvim
 
-    
 ## 热键
 
 lsp 里
@@ -15,6 +14,10 @@ lsp 里
 leap
 
 * `空格 l` 两字母跳转
+
+emmet
+
+* `Ctrl+y` html 补全
 
 ## DONE
 
