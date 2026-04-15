@@ -11,7 +11,7 @@ return {
 				"bash", "c", "cpp", "css", "go", "html",
 				"javascript", "json", "proto", "lua",
 				"python", "rust", "typescript", "vim",
-				"vimdoc", "yaml", "nix",
+				"vimdoc", "yaml", "nix", "scss",
 			}
 
 			-- 确保解析器已安装
