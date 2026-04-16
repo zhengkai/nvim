@@ -12,6 +12,8 @@ return {
 				"javascript", "json", "proto", "lua",
 				"python", "rust", "typescript", "vim",
 				"vimdoc", "yaml", "nix", "scss",
+				"gomod", "gosum", "gowork", "gotmpl", "sql", "json",
+				"comment",
 			}
 
 			-- 确保解析器已安装
