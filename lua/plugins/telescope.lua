@@ -14,6 +14,9 @@ return {
 		-- 基本配置
 		telescope.setup({
 			defaults = {
+				file_ignore_patterns = {
+					"%.lock$",
+				},
 				mappings = {
 					i = {
 						["<CR>"] = function(prompt_bufnr)
