@@ -1,4 +1,6 @@
-vim.o.directory = "/tmp/zhengkai"
+vim.o.directory = vim.fn.expand("~/dev/nvim")
+vim.fn.mkdir(vim.o.directory, "p")
+
 vim.o.laststatus = 3
 vim.wo.wrap = false
 vim.g.loaded_perl_provider = 0

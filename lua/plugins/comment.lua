@@ -1,5 +1,5 @@
 return {
-	"numToStr/Comment.nvim",
+	"numtostr/comment.nvim",
 	opts = {
 		-- 启用快捷键映射
 		mappings = {
