@@ -2,6 +2,12 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		opts = {
+			auto_install = true,
+			highlight = {
+				enable = true,
+			},
+		},
 		config = function()
 			-- 新版不再使用 require('nvim-treesitter.configs').setup()
 			-- 高亮和缩进由 Neovim 内置 vim.treesitter 处理
@@ -15,19 +21,6 @@ return {
 				"gomod", "gosum", "gowork", "gotmpl", "sql", "json",
 				"comment",
 			}
-
-			-- 确保解析器已安装
-			vim.api.nvim_create_autocmd("VimEnter", {
-				once = true,
-				callback = function()
-					for _, lang in ipairs(ensure_installed) do
-						local ok = pcall(vim.treesitter.language.inspect, lang)
-						if not ok then
-							pcall(vim.cmd, "TSInstall " .. lang)
-						end
-					end
-				end,
-			})
 
 			-- 启用高亮（对所有文件类型自动启用 treesitter 高亮）
 			vim.api.nvim_create_autocmd("FileType", {
