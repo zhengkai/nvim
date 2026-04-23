@@ -22,20 +22,6 @@ return {
 				"comment",
 			}
 
-			-- 启用高亮（对所有文件类型自动启用 treesitter 高亮）
-			vim.api.nvim_create_autocmd("FileType", {
-				callback = function()
-					pcall(vim.treesitter.start)
-				end,
-			})
-
-			-- 启用基于 treesitter 的缩进
-			vim.api.nvim_create_autocmd("FileType", {
-				callback = function()
-					vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-				end,
-			})
-
 			-- 启用基于 treesitter 的折叠
 			vim.o.foldmethod = "expr"
 			vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
