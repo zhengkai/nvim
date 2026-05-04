@@ -1,4 +1,9 @@
 local makeExe = "/usr/bin/make"
+local nixMake = "/run/current-system/sw/bin/make"
+if vim.loop.fs_stat(nixMake) then
+	makeExe = nixMake
+end
+
 local localMap = {
 	file = "",
 	out = "",

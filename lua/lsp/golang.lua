@@ -1,7 +1,7 @@
 local common = require("lsp.common")
 
 local function get_doc_link()
-	local params = vim.lsp.util.make_position_params()
+	local params = vim.lsp.util.make_position_params(0, vim.lsp.get_clients({ bufnr = 0 })[1].offset_encoding)
 	vim.lsp.buf_request(0, 'textDocument/hover', params, function(err, result)
 		if err then
 			print("doc not found, error:", err)
@@ -18,7 +18,7 @@ local function get_doc_link()
 			url = (c.value:match(".*%](.*)") or ""):gsub("^%(", ""):gsub("%)$", "")
 		end
 		if url:match("^http") then
-			vim.fn.jobstart({ 'open', url }, { detach = true })
+			vim.fn.jobstart({ 'xdg-open', url }, { detach = true })
 			return
 		end
 		print("doc link not found")
