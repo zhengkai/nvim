@@ -28,5 +28,8 @@ return {
 				end)
 			end,
 		})
+		vim.api.nvim_set_hl(0, "GitSignsAddNr", { fg = "#87ff00", bg = "#005700", bold = true })
+		vim.api.nvim_set_hl(0, "GitSignsChangeNr", { fg = "#ff8700", bg = "#575700", bold = true })
+		vim.api.nvim_set_hl(0, "GitSignsDeleteNr", { fg = "#ff0000", bg = "#570000", bold = true })
 	end
 }
