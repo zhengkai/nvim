@@ -1,8 +1,11 @@
 return {
 	"lewis6991/gitsigns.nvim",
 	config = function()
+		-- vim.g.show_git_blame = false
 		local gs = require('gitsigns')
 		gs.setup({
+			signcolumn = false,
+			numhl = true,
 			on_attach = function(bufnr)
 				local function map(mode, l, r, opts)
 					opts = opts or {}
@@ -11,9 +14,8 @@ return {
 				end
 
 				map('n', '<leader>gt', function()
-					vim.g.show_git_blame = not vim.g.show_git_blame
-					gs.toggle_signs(not vim.g.show_git_blame) -- 行号位置显示 Git 变更标记
-					gs.toggle_current_line_blame(vim.g.show_git_blame) -- 显示每行 blame
+					gs.toggle_signs() -- 行号位置显示 Git 变更标记
+					gs.toggle_current_line_blame() -- 显示每行 blame
 				end)
 
 				map('n', '<leader>gb', function()
