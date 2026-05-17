@@ -1,4 +1,4 @@
-vim.keymap.set('n', '<leader>r', function()
+vim.keymap.set('n', '<leader>rl', function()
 	if vim.wo.number then
 		vim.wo.number = false
 	else
