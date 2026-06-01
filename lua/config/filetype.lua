@@ -21,6 +21,13 @@ au(".rtorrent.rc", function()
 	vim.bo.filetype = "rtorrent"
 end)
 
+-- treesitter
+vim.api.nvim_create_autocmd("FileType", {
+	callback = function(args)
+		pcall(vim.treesitter.start, args.buf)
+	end,
+})
+
 -- crontab
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "crontab",
