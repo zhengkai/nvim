@@ -25,36 +25,37 @@ local function get_doc_link()
 	end)
 end
 
-local function goImports(bufnr)
-	local bufname = vim.api.nvim_buf_get_name(bufnr)
-
-	-- 使用系统的命令调用 goimports，并捕获输出（标准输出和错误）
-	local cmd = "goimports " .. bufname
-	local handle = io.popen(cmd)
-	if handle == nil then
+local function syncOrganizeImports()
+	local client = vim.lsp.get_clients({ bufnr = 0 })[1]
+	if not client then
 		return
 	end
-	local result = handle:read("*a")
-	handle:close()
 
-	-- 将结果写回到缓冲区
-	local lines = vim.split(result, "\n")
-	vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
-end
+	local params = vim.lsp.util.make_range_params(
+		0,
+		client.offset_encoding
+	)
 
-local function syncOrganizeImports()
-	local params = vim.lsp.util.make_range_params()
-	params.context = { only = { "source.organizeImports" } }
-	-- 使用同步方法，结果在 1000 毫秒内返回
-	local response = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 1000)
+	params.context = {
+		only = { "source.organizeImports" },
+	}
 
-	-- 解析结果并应用编辑
+	local response = vim.lsp.buf_request_sync(
+		0,
+		"textDocument/codeAction",
+		params,
+		1000
+	)
+
 	for _, result in pairs(response or {}) do
-		for _, r in pairs(result.result or {}) do
-			if r.edit then
-				vim.lsp.util.apply_workspace_edit(r.edit, "utf-8")
-			elseif r.command then
-				vim.lsp.buf.execute_command(r.command)
+		for _, action in pairs(result.result or {}) do
+			if action.edit then
+				vim.lsp.util.apply_workspace_edit(
+					action.edit,
+					client.offset_encoding
+				)
+			elseif action.command then
+				vim.lsp.commands.execute(action.command)
 			end
 		end
 	end
