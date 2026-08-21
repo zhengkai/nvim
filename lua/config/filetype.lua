@@ -12,7 +12,7 @@ au("hosts", function()
 	-- 禁用自动完成
 	vim.keymap.set('i', '<TAB>', '<TAB>', { noremap = true, silent = true })
 
-	vim.o.syntax = 'enable'
+	vim.bo.syntax = 'hosts'
 	vim.bo.filetype = "hosts"
 end)
 

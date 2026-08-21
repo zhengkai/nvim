@@ -1,6 +1,6 @@
 -- 切换窗口
-vim.api.nvim_set_keymap("n", "q", ":wincmd w<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Esc>q", ":wincmd W<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "q", "<Cmd>wincmd w<CR>", { silent = true })
+vim.keymap.set("n", "<Esc>q", "<Cmd>wincmd W<CR>", { silent = true })
 
 -- 退出所有窗口
-vim.api.nvim_set_keymap("n", "Q", ":qa<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "Q", "<Cmd>qa<CR>", { silent = true })

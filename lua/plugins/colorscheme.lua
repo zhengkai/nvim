@@ -7,7 +7,7 @@ return {
 			style = "dark",
 			group_overrides = {
 				Normal = { bg = "#000000" },  -- 纯黑背景
-				VertSplit = { fg = "#666666", bg = "#000000" }, 
+				WinSeparator = { fg = "#666666", bg = "#000000" },
 				LineNr = { fg = "#556688", bg = "#000000" },
 				CursorLineX = { bg = "#444444" },
 				ColorColumn = { bg = "#121212" },

@@ -67,7 +67,7 @@ return {
 	},
 	{
 		'ray-x/guihua.lua',
-		run = 'cd lua/fzy && make'
+		build = 'cd lua/fzy && make'
 	},
 	'mfussenegger/nvim-dap',
 	'theHamsta/nvim-dap-virtual-text',

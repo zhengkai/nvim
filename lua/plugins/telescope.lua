@@ -1,9 +1,11 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
-		"nvim-lua/plenary.nvim",              -- Telescope 的依赖
-		"nvim-telescope/telescope-fzf-native.nvim", -- fzf 原生支持
-		build = "make",                       -- 如果需要编译 fzf-native
+		"nvim-lua/plenary.nvim", -- Telescope 的依赖
+		{
+			"nvim-telescope/telescope-fzf-native.nvim",
+			build = "make",
+		},
 	},
 	config = function()
 		-- 加载 Telescope

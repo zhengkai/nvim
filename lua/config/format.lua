@@ -50,7 +50,10 @@ local pattern = {
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern  = pattern,
-	callback = function()
+	callback = function(args)
+		if not vim.bo[args.buf].modifiable then
+			return
+		end
 		vim.cmd('silent! undojoin')
 		trim_space()
 	end,

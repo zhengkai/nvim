@@ -1,7 +1,12 @@
 local common = require("lsp.common")
 
 local function get_doc_link()
-	local params = vim.lsp.util.make_position_params(0, vim.lsp.get_clients({ bufnr = 0 })[1].offset_encoding)
+	local client = vim.lsp.get_clients({ bufnr = 0, name = "gopls" })[1]
+	if not client then
+		vim.notify("gopls is not attached", vim.log.levels.WARN)
+		return
+	end
+	local params = vim.lsp.util.make_position_params(0, client.offset_encoding)
 	vim.lsp.buf_request(0, 'textDocument/hover', params, function(err, result)
 		if err then
 			print("doc not found, error:", err)
@@ -55,7 +60,7 @@ local function syncOrganizeImports()
 					client.offset_encoding
 				)
 			elseif action.command then
-				vim.lsp.commands.execute(action.command)
+				client:exec_cmd(action.command, { bufnr = 0 })
 			end
 		end
 	end

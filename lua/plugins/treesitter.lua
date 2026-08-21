@@ -1,6 +1,7 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
+		branch = "main",
 		lazy = false,
 		build = ":TSUpdate",
 
@@ -52,14 +53,20 @@ return {
 				select = {
 					lookahead = true,
 
-					keymaps = {
-						["af"] = "@function.outer",
-						["if"] = "@function.inner",
-						["ac"] = "@class.outer",
-						["ic"] = "@class.inner",
-					},
 				},
 			}
+
+			local select = require("nvim-treesitter-textobjects.select").select_textobject
+			for lhs, capture in pairs({
+				af = "@function.outer",
+				["if"] = "@function.inner",
+				ac = "@class.outer",
+				ic = "@class.inner",
+			}) do
+				vim.keymap.set({ "x", "o" }, lhs, function()
+					select(capture, "textobjects")
+				end)
+			end
 		end,
 	},
 
