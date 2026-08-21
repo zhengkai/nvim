@@ -1,72 +1,71 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
+		lazy = false,
 		build = ":TSUpdate",
-		opts = {
-			auto_install = true,
-			highlight = {
-				enable = true,
-			},
-		},
-		config = function()
-			-- 新版不再使用 require('nvim-treesitter.configs').setup()
-			-- 高亮和缩进由 Neovim 内置 vim.treesitter 处理
 
-			-- 自动安装语言解析器
+		config = function()
 			local ensure_installed = {
 				"bash", "c", "cpp", "css", "go", "html",
 				"javascript", "json", "proto", "lua",
 				"python", "rust", "typescript", "vim",
 				"vimdoc", "yaml", "nix", "scss",
-				"gomod", "gosum", "gowork", "gotmpl", "sql", "json",
+				"gomod", "gosum", "gowork", "gotmpl", "sql",
 				"comment",
 			}
 
-			-- 启用基于 treesitter 的折叠
-			vim.o.foldmethod = "expr"
-			vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-			vim.o.foldenable = false -- 默认不折叠
+			-- 安装 parser，限制并发
+			require("nvim-treesitter").install(
+				ensure_installed,
+				{ max_jobs = 2 }
+			)
 
-			-- 增量选择
-			vim.keymap.set("n", "gnn", function()
-				require("nvim-treesitter.incremental_selection").init_selection()
-			end, { desc = "Init selection" })
-			vim.keymap.set("x", "gkn", function()
-				require("nvim-treesitter.incremental_selection").node_incremental()
-			end, { desc = "Node incremental" })
-			vim.keymap.set("x", "gkc", function()
-				require("nvim-treesitter.incremental_selection").scope_incremental()
-			end, { desc = "Scope incremental" })
-			vim.keymap.set("x", "gkm", function()
-				require("nvim-treesitter.incremental_selection").node_decremental()
-			end, { desc = "Node decremental" })
+			-- Tree-sitter highlighting
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = ensure_installed,
+				callback = function(args)
+					vim.treesitter.start(args.buf)
+				end,
+			})
+
+			-- Tree-sitter folding
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = ensure_installed,
+				callback = function()
+					vim.wo.foldmethod = "expr"
+					vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+					vim.wo.foldenable = false
+				end,
+			})
 		end,
 	},
 
-	-- 文本对象（需要单独插件）
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
-		dependencies = "nvim-treesitter/nvim-treesitter",
+		branch = "main",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+		},
+
 		config = function()
-			-- 函数文本对象
-			vim.keymap.set({ "x", "o" }, "af", function()
-				require("nvim-treesitter-textobjects.select").select_textobject("@function.outer", "textobjects")
-			end)
-			vim.keymap.set({ "x", "o" }, "if", function()
-				require("nvim-treesitter-textobjects.select").select_textobject("@function.inner", "textobjects")
-			end)
-			vim.keymap.set({ "x", "o" }, "ac", function()
-				require("nvim-treesitter-textobjects.select").select_textobject("@class.outer", "textobjects")
-			end)
-			vim.keymap.set({ "x", "o" }, "ic", function()
-				require("nvim-treesitter-textobjects.select").select_textobject("@class.inner", "textobjects")
-			end)
+			require("nvim-treesitter-textobjects").setup {
+				select = {
+					lookahead = true,
+
+					keymaps = {
+						["af"] = "@function.outer",
+						["if"] = "@function.inner",
+						["ac"] = "@class.outer",
+						["ic"] = "@class.inner",
+					},
+				},
+			}
 		end,
 	},
 
-	-- 上下文显示
 	{
 		"nvim-treesitter/nvim-treesitter-context",
+
 		config = function()
 			require("treesitter-context").setup({
 				line_numbers = true,
